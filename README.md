@@ -14,11 +14,14 @@ Scans only function correctly when a URL is given and that URL is resolvable usi
 
 
 #####  Example Usage #####
+```
 (appsecenv) user@vm01:~/appsecenv/appsecproject$ python manage.py shell
 Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
 [GCC 5.4.0 20160609] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 (InteractiveConsole)
+```
+```python
 >>> import crypto.sslite as sslite
 >>> scan_obj = sslite.sslScanner("example.com", 443)
 >>> scan_obj.validate_hostname()
@@ -26,7 +29,9 @@ True
 >>> results = scan_obj.do_scan()
 >>> for i in results:
 ...     print(i + ": ", results[i])
-... 
+...
+```
+```
 local_port:  56760
 scan_date:  Mon, 06 Nov 2017 23:45:55
 ordered_ciphers:  ['ECDHE-RSA-AES128-GCM-SHA256', 'ECDHE-RSA-AES256-GCM-SHA384', 'DHE-RSA-AES128-GCM-SHA256', 'DHE-RSA-AES256-GCM-SHA384']
@@ -50,6 +55,7 @@ cert_expiry:  Jul 24 20:43:38 2018 GMT
 remote_ip:  192.168.125.100
 tls_compression:  Disabled
 x_frame_options:  DENY
+```
 ##### ----- #####
 
 
@@ -82,4 +88,3 @@ This section contains a list of desired and upcoming features for sslite.
 +Checks for key exchange parameter size
 
 +Non-invasive mode (rate-limiting connections)
-##### ----- #####
